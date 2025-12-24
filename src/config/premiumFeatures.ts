@@ -6,13 +6,13 @@
 
 export const FREE_TIER_LIMITS = {
   // Gig & Income Tracking
-  maxGigs: 25,                    // Free users can track up to 25 gigs
-  maxIncomeSources: 3,            // Free users can connect 3 income sources (Uber, DoorDash, etc.)
-  maxClients: 10,                 // Free users can manage up to 10 clients
+  maxGigs: 10,                    // Free users can track up to 10 gigs
+  maxIncomeSources: 2,            // Free users can connect 2 income sources (Uber, DoorDash, etc.)
+  maxClients: 3,                  // Free users can manage up to 3 clients
 
   // Expense Tracking
-  maxExpenses: 50,                // Free users can log 50 expenses per month
-  maxCategories: 5,               // Free users can create 5 custom categories
+  maxExpenses: 15,                // Free users can log 15 expenses per month
+  maxCategories: 3,               // Free users can create 3 custom categories
   receiptScanning: false,         // Receipt OCR scanning is premium
 
   // Tax Features
@@ -21,7 +21,7 @@ export const FREE_TIER_LIMITS = {
   taxReportExport: false,         // Exportable tax reports are premium
 
   // Invoicing
-  maxInvoicesPerMonth: 5,         // Free users can send 5 invoices per month
+  maxInvoicesPerMonth: 2,         // Free users can send 2 invoices per month
   customBranding: false,          // Custom invoice branding is premium
   recurringInvoices: false,       // Recurring invoices are premium
   paymentReminders: false,        // Automatic payment reminders are premium
@@ -33,7 +33,7 @@ export const FREE_TIER_LIMITS = {
   profitMarginAnalysis: false,    // Profit margin analysis is premium
 
   // Savings & Goals
-  maxSavingsGoals: 2,             // Free users can set 2 savings goals
+  maxSavingsGoals: 1,             // Free users can set 1 savings goal
   autoSavingsRules: false,        // Automatic savings rules are premium
 
   // Sync & Backup
