@@ -1,9 +1,15 @@
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 import { Ionicons } from "@expo/vector-icons";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Link, useSegments } from "expo-router";
+import { Link, useSegments, useRouter } from "expo-router";
 import { Drawer } from "expo-router/drawer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useRevenueCatInit } from "../src/hooks/useRevenueCatInit";
+import { useNotificationInit } from "../src/hooks/useNotificationInit";
+import { useFinanceStore } from "../src/stores/financeStore";
+import { useSubscriptionStore } from "../src/stores/subscriptionStore";
 
 import "../global.css";
 
@@ -39,10 +45,45 @@ const DrawerLink = ({ href, label, icon, onPress }: DrawerLinkProps) => (
 );
 
 const RootLayout = () => {
+  const router = useRouter();
   const segments = useSegments();
   const currentScreen = segments[segments.length - 1] || "Dashboard";
   const drawerTitle = currentScreen === "(tabs)" ? "Dashboard" :
     currentScreen.charAt(0).toUpperCase() + currentScreen.slice(1);
+
+  // Initialize RevenueCat and Notifications
+  useRevenueCatInit();
+  useNotificationInit();
+
+  // Check onboarding status
+  const [isOnboardingComplete, setIsOnboardingComplete] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    checkOnboarding();
+  }, []);
+
+  const checkOnboarding = async () => {
+    try {
+      const completed = await AsyncStorage.getItem('gigguard_onboarding_complete');
+      setIsOnboardingComplete(completed === 'true');
+
+      // Redirect to onboarding if not completed
+      if (completed !== 'true' && segments[0] !== 'onboarding') {
+        router.replace('/onboarding');
+      }
+    } catch (error) {
+      console.error('Failed to check onboarding status:', error);
+      setIsOnboardingComplete(false);
+    }
+  };
+
+  // Sync premium status from subscription store to finance store
+  const { isPremium } = useSubscriptionStore();
+  const { setPremium } = useFinanceStore();
+
+  useEffect(() => {
+    setPremium(isPremium);
+  }, [isPremium, setPremium]);
 
   return (
     <QueryClientProvider client={client}>

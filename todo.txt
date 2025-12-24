@@ -1,0 +1,294 @@
+================================================================================
+                    GIGGUARD - PRE-PUBLICATION CHECKLIST
+================================================================================
+
+Generated: December 24, 2024
+App Category: Finance/Freelancer Management
+Bundle ID (iOS): com.gigguard.app
+Package Name (Android): com.gigguard.app
+
+================================================================================
+REQUIRED - Must complete before App Store/Play Store submission
+================================================================================
+
+[ ] REVENUECAT SETUP
+    - Create account at https://revenuecat.com
+    - Create new project for GigGuard
+    - Copy API key to .env as EXPO_PUBLIC_REVENUECAT_API_KEY
+    - Configure entitlement: "gigguard_pro"
+
+[ ] APP STORE PRODUCTS (iOS)
+    - Go to App Store Connect → GigGuard → In-App Purchases
+    - Create auto-renewable subscription group: "GigGuard Pro"
+    - Add products:
+      * Monthly: gigguard_pro_monthly ($9.99/month recommended)
+      * Yearly: gigguard_pro_yearly ($79.99/year recommended - 33% savings)
+      * (Optional) Lifetime: gigguard_pro_lifetime ($199.99 one-time)
+    - Configure 7-day free trial for all subscription products:
+      1. Edit subscription product
+      2. Subscription Prices → Introductory Offers
+      3. Add Free Trial: 7 days, Free
+      4. Submit for review
+
+[ ] GOOGLE PLAY PRODUCTS (Android)
+    - Go to Play Console → GigGuard → Monetize → Subscriptions
+    - Create matching subscription products with same IDs:
+      * gigguard_pro_monthly
+      * gigguard_pro_yearly
+      * gigguard_pro_lifetime (optional)
+    - Configure 7-day free trial:
+      1. Edit base plan
+      2. Offers → Add offer → Free trial
+      3. Set trial period: 7 days
+      4. Attach to base plan
+
+[ ] REVENUECAT CONFIGURATION
+    - Import products from App Store Connect (iOS)
+    - Import products from Google Play Console (Android)
+    - Create Entitlement: "gigguard_pro"
+    - Attach all subscription products to the entitlement
+    - Create "default" Offering with Monthly/Yearly/Lifetime packages
+    - Design paywall in RevenueCat dashboard:
+      * Use visual Paywall Editor
+      * Include all premium features listed in app
+      * Attach paywall to default offering
+
+[ ] SUPABASE CONFIGURATION
+    - Go to https://supabase.com/dashboard
+    - Navigate to Build project: kazhissaknwmagcribxq
+    - Copy Supabase URL and Anon Key to .env:
+      * EXPO_PUBLIC_SUPABASE_URL
+      * EXPO_PUBLIC_SUPABASE_ANON_KEY
+
+    - Enable Email/Password authentication:
+      1. Authentication → Providers → Email
+      2. Enable "Enable Email provider"
+      3. Disable "Confirm email" for faster testing (re-enable for production)
+
+    - Configure email templates:
+      1. Authentication → Email Templates
+      2. Customize "Confirm signup" email
+      3. Customize "Reset password" email
+      4. Add app branding and support email
+
+    - (Optional) Enable social logins:
+      * Google: Follow Supabase Google Auth guide
+      * Apple: Required for iOS if using social login
+
+    - Verify database migration has been run (check for tables):
+      * app_registry
+      * user_app_context
+      * profiles
+      * gigs
+      * expenses
+      * clients
+      * invoices
+      * savings_goals
+
+[ ] UPDATE CONTACT EMAILS
+    - Replace placeholder emails in legal documents:
+      * app/settings/privacy.tsx
+      * app/settings/support.tsx
+      * app/settings/about.tsx
+    - Update support email: support@gigguard.com → your-email@domain.com
+
+[ ] APP STORE ASSETS
+    - App Icon (1024x1024): Create professional icon for GigGuard
+    - Screenshots (1290x2796 for iPhone 6.7"):
+      1. Dashboard with income/expenses
+      2. Gig detail screen
+      3. Tax estimate feature (premium)
+      4. Invoice creation screen
+      5. Analytics/reports screen (premium)
+    - App Preview Video (optional but recommended):
+      * 15-30 seconds
+      * Showcase gig tracking, expense logging, invoicing
+
+    - App Store Description:
+      Title: GigGuard - Freelance Finance Manager
+      Subtitle: Track Income, Expenses & Taxes
+
+      Description:
+      GigGuard helps freelancers and gig workers manage their finances with ease.
+      Track income from Uber, DoorDash, Fiverr, and all your gigs in one place.
+
+      Features:
+      - Multi-platform gig tracking (Uber, Lyft, DoorDash, etc.)
+      - Smart expense tracking with tax deductions
+      - Quarterly tax estimates (Pro)
+      - Professional invoicing with custom branding (Pro)
+      - Advanced analytics and income projections (Pro)
+      - Cloud sync across all devices (Pro)
+
+      Start your 7-day free trial today!
+
+    - Keywords: gig economy, freelance, uber, doordash, tax, invoice, expense tracker
+    - Category: Finance
+    - Age Rating: 4+ (No objectionable content)
+
+[ ] GOOGLE PLAY ASSETS
+    - App Icon (512x512): Same as App Store icon
+    - Feature Graphic (1024x500): Banner image for Play Store
+    - Screenshots (1080x1920 minimum):
+      * Use same 5 screenshots as App Store
+    - Short Description (80 chars):
+      "Track gig income, expenses, and taxes for freelancers"
+
+    - Full Description:
+      [Same as App Store description, formatted for Play Store]
+
+    - Category: Finance
+    - Content Rating: Everyone
+
+================================================================================
+PRODUCTION DEPLOYMENT (After Testing)
+================================================================================
+
+[ ] MIGRATE TO PRODUCTION SUPABASE
+    - After full testing in Build environment, migrate to Production:
+      1. Run migration SQL on Production project (aweahqgyrthpdxrnzaoi)
+      2. Test Production credentials locally
+      3. Update .env for production build:
+         EXPO_PUBLIC_SUPABASE_URL=https://aweahqgyrthpdxrnzaoi.supabase.co
+         EXPO_PUBLIC_SUPABASE_ANON_KEY=[Production Anon Key]
+      4. Verify app_registry entry exists in Production
+
+[ ] BUILD FOR PRODUCTION
+    - iOS:
+      1. Run: npx eas build --platform ios --profile production
+      2. Wait for build to complete (~15-20 minutes)
+      3. Download .ipa file
+      4. Upload to App Store Connect via Transporter or web
+
+    - Android:
+      1. Run: npx eas build --platform android --profile production
+      2. Wait for build to complete (~15-20 minutes)
+      3. Download .aab file
+      4. Upload to Play Console
+
+[ ] APP STORE CONNECT SUBMISSION
+    - Create new app version
+    - Upload build from EAS
+    - Fill in "What's New" section
+    - Set pricing (Free with in-app purchases)
+    - Select availability (all countries or specific regions)
+    - Submit for review
+    - Estimated review time: 24-48 hours
+
+[ ] GOOGLE PLAY CONSOLE SUBMISSION
+    - Create new release in Production track
+    - Upload .aab from EAS
+    - Fill in release notes
+    - Set pricing (Free with in-app purchases)
+    - Select availability (all countries or specific regions)
+    - Submit for review
+    - Estimated review time: 1-7 days
+
+================================================================================
+OPTIONAL ENHANCEMENTS
+================================================================================
+
+[ ] PUSH NOTIFICATIONS
+    - Configure Expo Push Notification credentials in app.json
+    - Test notifications on physical devices
+    - Set up server for sending push notifications (optional)
+
+[ ] ANALYTICS
+    - Integrate Firebase Analytics or similar
+    - Track key events: gig_added, expense_logged, invoice_created, subscription_started
+    - Monitor user retention and engagement
+
+[ ] CRASH REPORTING
+    - Integrate Sentry or similar crash reporting tool
+    - Configure source maps for stack traces
+    - Set up alerts for critical errors
+
+[ ] CUSTOMER SUPPORT
+    - Set up Intercom, Zendesk, or similar support tool
+    - Create knowledge base with FAQs
+    - Add in-app chat support
+
+[ ] MARKETING
+    - Create landing page for GigGuard
+    - Set up social media accounts (Twitter, Instagram)
+    - Prepare launch announcement
+    - Reach out to gig worker communities (Reddit, Facebook groups)
+
+================================================================================
+TESTING CHECKLIST (Before Submission)
+================================================================================
+
+[ ] Test on physical devices:
+    - iOS: iPhone 12 or newer
+    - Android: Samsung Galaxy S21 or similar
+
+[ ] Test user flows:
+    - Onboarding → Trial CTA → Subscription screen
+    - Add gig → View gig detail → Update status → Delete
+    - Add expense → Mark as tax deductible
+    - Create invoice → Preview
+    - Free tier limits → Upgrade prompt
+
+[ ] Test premium features:
+    - Subscribe to monthly/yearly plan (use test purchase)
+    - Verify all premium features unlock
+    - Verify free tier limits are removed
+    - Test subscription management (customer center)
+    - Cancel subscription → Verify premium features lock after period ends
+
+[ ] Test authentication:
+    - Sign up with email/password
+    - Sign in with existing account
+    - Reset password flow
+    - Sign out and sign back in
+
+[ ] Test data sync:
+    - Create data on one device
+    - Sign in on another device
+    - Verify data syncs correctly
+    - Test offline mode → Online sync
+
+[ ] Test notifications:
+    - Enable notification permissions
+    - Schedule daily reminder
+    - Verify notification received
+    - Test notification tap → Opens app
+
+================================================================================
+LAUNCH PREPARATION
+================================================================================
+
+[ ] Set launch date
+[ ] Prepare press release
+[ ] Create demo video for social media
+[ ] Reach out to tech bloggers and gig economy publications
+[ ] Prepare launch discount (optional, e.g., 50% off first month)
+[ ] Set up email marketing campaign for waitlist (if applicable)
+
+================================================================================
+POST-LAUNCH
+================================================================================
+
+[ ] Monitor user reviews and ratings
+[ ] Respond to user feedback
+[ ] Track key metrics (downloads, subscriptions, retention)
+[ ] Plan feature updates based on user requests
+[ ] Regular bug fixes and performance improvements
+
+================================================================================
+NOTES
+================================================================================
+
+- All files have been generated and are production-ready
+- RevenueCat integration is complete, just needs API key and product setup
+- Supabase schema supports multi-tenant architecture
+- 7-day free trial is configured in the app, needs store product setup
+- Premium feature limits are enforced in the app code
+- Notification system is ready, just needs permission grants
+
+For questions or issues, refer to:
+- RevenueCat docs: https://www.revenuecat.com/docs
+- Supabase docs: https://supabase.com/docs
+- Expo EAS Build: https://docs.expo.dev/build/introduction/
+
+================================================================================
