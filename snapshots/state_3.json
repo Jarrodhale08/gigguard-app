@@ -1,0 +1,1064 @@
+{
+  "id": "pipeline_1764814446868",
+  "startedAt": "2025-12-04T02:14:06.868Z",
+  "status": "auditing",
+  "currentPhase": "security-audit",
+  "phases": [
+    {
+      "phase": "market-research",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:14:06.875Z",
+      "completedAt": "2025-12-04T02:14:07.109Z",
+      "duration": 234
+    },
+    {
+      "phase": "design-system",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:14:07.110Z",
+      "completedAt": "2025-12-04T02:18:18.388Z",
+      "duration": 251278
+    },
+    {
+      "phase": "code-generation",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:18:18.392Z",
+      "completedAt": "2025-12-04T02:28:17.168Z",
+      "duration": 598776
+    },
+    {
+      "phase": "quality-assurance",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:28:17.169Z",
+      "completedAt": "2025-12-04T02:28:20.448Z",
+      "duration": 3279
+    },
+    {
+      "phase": "security-audit",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:28:20.449Z",
+      "completedAt": "2025-12-04T02:29:09.107Z",
+      "duration": 48658
+    },
+    {
+      "phase": "code-generation",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:29:09.127Z",
+      "completedAt": "2025-12-04T02:38:14.423Z",
+      "duration": 545296
+    },
+    {
+      "phase": "quality-assurance",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:38:14.424Z",
+      "completedAt": "2025-12-04T02:38:17.079Z",
+      "duration": 2655
+    },
+    {
+      "phase": "security-audit",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:38:17.080Z",
+      "completedAt": "2025-12-04T02:39:01.219Z",
+      "duration": 44139
+    },
+    {
+      "phase": "code-generation",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:39:01.232Z",
+      "completedAt": "2025-12-04T02:47:45.267Z",
+      "duration": 524035
+    },
+    {
+      "phase": "quality-assurance",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:47:45.267Z",
+      "completedAt": "2025-12-04T02:47:47.222Z",
+      "duration": 1955
+    },
+    {
+      "phase": "security-audit",
+      "status": "completed",
+      "startedAt": "2025-12-04T02:47:47.223Z",
+      "completedAt": "2025-12-04T02:48:38.779Z",
+      "duration": 51556
+    }
+  ],
+  "errors": [
+    {
+      "phase": "quality-assurance",
+      "message": "TypeScript error in C:\\Projects\\NewAgent\\output\\app_1764814446868\\src\\components\\List.tsx:6: Avoid using \"any\" type",
+      "recoverable": true,
+      "timestamp": "2025-12-04T02:47:47.221Z"
+    },
+    {
+      "phase": "security-audit",
+      "message": "SECURITY [high]: User Data Stored in SecureStore Without Encryption Key Protection in src/stores/profileStore.ts:21 - FIX: Implement application-level encryption for sensitive user data before storing in SecureStore. Consider using expo-crypto to encrypt the JSON payload before passing it to SecureStore.setItemAsync(). Ensure encryption keys are properly managed and not hardcoded.",
+      "recoverable": true,
+      "timestamp": "2025-12-04T02:48:38.777Z"
+    }
+  ],
+  "outputPath": "C:\\Projects\\NewAgent\\output\\app_1764814446868",
+  "marketResearch": {
+    "appConcept": {
+      "name": "GigGuard",
+      "tagline": "Finances made simple for freelancers",
+      "description": "Financial management for gig workers and freelancers. Track income across platforms, estimate quarterly taxes, set aside savings automatically, invoice clients.",
+      "category": "finance",
+      "subcategory": "Freelance Finance",
+      "keywords": [
+        "freelance",
+        "gig-economy",
+        "taxes",
+        "invoicing",
+        "income"
+      ],
+      "uniqueValueProposition": "Solves: Gig workers struggle with irregular income and tax obligations. Finances made simple for freelancers",
+      "targetAudience": {
+        "demographics": {
+          "ageRange": "22-55",
+          "gender": "all",
+          "income": "medium",
+          "location": [
+            "United States",
+            "Canada",
+            "UK"
+          ]
+        },
+        "psychographics": {
+          "interests": [
+            "personal finance",
+            "saving",
+            "investing"
+          ],
+          "painPoints": [
+            "Overspending",
+            "No budget visibility"
+          ],
+          "goals": [
+            "Save money",
+            "Financial security"
+          ]
+        },
+        "marketSize": {
+          "tam": 100000000,
+          "sam": 20000000,
+          "som": 1000000
+        }
+      },
+      "coreFeatures": [
+        {
+          "name": "Transaction Tracking",
+          "description": "Log income and expenses easily",
+          "priority": "must-have",
+          "complexity": "medium",
+          "screens": [
+            "HomeScreen",
+            "AddTransactionScreen"
+          ],
+          "dataRequirements": [
+            "transactions"
+          ]
+        },
+        {
+          "name": "Budget Categories",
+          "description": "Organize spending into categories",
+          "priority": "must-have",
+          "complexity": "medium",
+          "screens": [
+            "BudgetScreen",
+            "CategoryScreen"
+          ],
+          "dataRequirements": [
+            "budgets",
+            "categories"
+          ]
+        },
+        {
+          "name": "Visual Reports",
+          "description": "Charts and graphs of spending patterns",
+          "priority": "must-have",
+          "complexity": "medium",
+          "screens": [
+            "ReportsScreen"
+          ],
+          "dataRequirements": [
+            "analytics"
+          ]
+        },
+        {
+          "name": "Bill Reminders",
+          "description": "Never miss a payment",
+          "priority": "should-have",
+          "complexity": "low",
+          "screens": [
+            "RemindersScreen"
+          ],
+          "dataRequirements": [
+            "bills"
+          ]
+        }
+      ],
+      "premiumFeatures": [
+        {
+          "name": "Bank Sync",
+          "description": "Automatic transaction import",
+          "priority": "nice-to-have",
+          "complexity": "high",
+          "screens": [
+            "SyncScreen"
+          ],
+          "dataRequirements": [
+            "bank_connections"
+          ]
+        },
+        {
+          "name": "Investment Tracking",
+          "description": "Track investments and net worth",
+          "priority": "nice-to-have",
+          "complexity": "high",
+          "screens": [
+            "InvestmentsScreen"
+          ],
+          "dataRequirements": [
+            "investments"
+          ]
+        }
+      ]
+    },
+    "marketAnalysis": {
+      "trendScore": 86,
+      "demandIndicators": [
+        "Growing interest in finance apps",
+        "Users seeking solutions for: Gig workers struggle with irregular income and tax obligations",
+        "Increasing mobile-first behavior",
+        "Strong willingness to pay for quality apps"
+      ],
+      "seasonality": "low",
+      "growthPotential": "growing",
+      "barriers": [
+        "Established competitors",
+        "User acquisition costs",
+        "App store discoverability"
+      ],
+      "opportunities": [
+        "Underserved niche",
+        "Better UX than competitors",
+        "Mobile-native approach",
+        "Subscription model viability"
+      ]
+    },
+    "competitorAnalysis": {
+      "directCompetitors": [
+        {
+          "name": "Generic Competitor 1",
+          "downloads": "1M+",
+          "rating": 4.2,
+          "pricing": "Freemium",
+          "strengths": [
+            "Established user base",
+            "Feature rich"
+          ],
+          "weaknesses": [
+            "Complicated UI",
+            "Expensive premium"
+          ]
+        },
+        {
+          "name": "Generic Competitor 2",
+          "downloads": "500K+",
+          "rating": 4,
+          "pricing": "Free with ads",
+          "strengths": [
+            "Free tier",
+            "Simple"
+          ],
+          "weaknesses": [
+            "Limited features",
+            "Ads are intrusive"
+          ]
+        }
+      ],
+      "indirectCompetitors": [
+        {
+          "name": "Alternative Solution",
+          "downloads": "2M+",
+          "rating": 4.3,
+          "pricing": "Subscription",
+          "strengths": [
+            "Well-known brand"
+          ],
+          "weaknesses": [
+            "Not mobile-focused",
+            "Expensive"
+          ]
+        }
+      ],
+      "marketGaps": [
+        "Specific focus on: Gig workers struggle with irregular income and tax obligations",
+        "Modern, clean user interface",
+        "Fair pricing for value provided",
+        "Privacy-respecting approach"
+      ],
+      "differentiators": [
+        "Finances made simple for freelancers",
+        "Purpose-built for mobile",
+        "User-centric design",
+        "Transparent pricing"
+      ]
+    },
+    "revenueProjection": {
+      "model": "freemium",
+      "pricing": {
+        "freeTier": true,
+        "premiumPrice": 6.99,
+        "subscriptionTiers": [
+          {
+            "name": "Free",
+            "price": 0,
+            "interval": "monthly",
+            "features": [
+              "Basic features",
+              "Limited usage"
+            ]
+          },
+          {
+            "name": "Pro",
+            "price": 6.99,
+            "interval": "monthly",
+            "features": [
+              "All features",
+              "No ads",
+              "Cloud sync"
+            ]
+          },
+          {
+            "name": "Pro Annual",
+            "price": 49.99,
+            "interval": "yearly",
+            "features": [
+              "All Pro features",
+              "40% savings"
+            ]
+          }
+        ]
+      },
+      "projectedMRR": 40321,
+      "projectedARR": 465970,
+      "breakEvenMonths": 8,
+      "assumptions": [
+        "3% free-to-paid conversion",
+        "5% monthly churn",
+        "Organic growth via ASO",
+        "Word-of-mouth referrals"
+      ]
+    },
+    "technicalRequirements": {
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "minimumOS": {
+        "ios": "14.0",
+        "android": "10.0"
+      },
+      "permissions": [
+        "INTERNET",
+        "NOTIFICATIONS"
+      ],
+      "thirdPartyServices": [
+        {
+          "name": "Firebase",
+          "purpose": "Authentication and analytics",
+          "required": true,
+          "alternatives": [
+            "Supabase"
+          ]
+        },
+        {
+          "name": "RevenueCat",
+          "purpose": "Subscription management",
+          "required": false,
+          "alternatives": [
+            "Stripe"
+          ]
+        }
+      ],
+      "dataStorage": "hybrid",
+      "offlineSupport": true,
+      "pushNotifications": true
+    }
+  },
+  "designSystem": {
+    "brand": {
+      "personality": [
+        "trustworthy",
+        "professional",
+        "secure"
+      ],
+      "tone": "professional",
+      "visualStyle": "modern"
+    },
+    "colors": {
+      "primary": {
+        "50": "#F5F8FE",
+        "100": "#EBF2FE",
+        "200": "#CEDFFC",
+        "300": "#B0CDFB",
+        "400": "#75A7F8",
+        "500": "#3B82F6",
+        "600": "#3575DD",
+        "700": "#2F68C4",
+        "800": "#295BAC",
+        "900": "#234E93"
+      },
+      "secondary": {
+        "50": "#F7F7F8",
+        "100": "#F0F0F2",
+        "200": "#DADBDF",
+        "300": "#C3C6CC",
+        "400": "#979CA6",
+        "500": "#6B7280",
+        "600": "#606673",
+        "700": "#555B66",
+        "800": "#4A4F59",
+        "900": "#40444C"
+      },
+      "accent": {
+        "50": "#F3F6FD",
+        "100": "#E8EDFB",
+        "200": "#C6D2F5",
+        "300": "#A4B8EF",
+        "400": "#6083E3",
+        "500": "#1D4ED8",
+        "600": "#1A46C2",
+        "700": "#173EAC",
+        "800": "#143697",
+        "900": "#112E81"
+      },
+      "neutral": {
+        "50": "#FAFAFA",
+        "100": "#F5F5F5",
+        "200": "#E5E5E5",
+        "300": "#D4D4D4",
+        "400": "#A3A3A3",
+        "500": "#737373",
+        "600": "#525252",
+        "700": "#404040",
+        "800": "#262626",
+        "900": "#171717"
+      },
+      "semantic": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#3B82F6"
+      },
+      "gradients": [
+        {
+          "name": "primary",
+          "colors": [
+            "#3B82F6",
+            "#1D4ED8"
+          ],
+          "direction": "to bottom right"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamily": {
+        "heading": "System",
+        "body": "System",
+        "mono": "Courier"
+      },
+      "scale": {
+        "h1": {
+          "fontSize": 32,
+          "lineHeight": 40,
+          "fontWeight": "700"
+        },
+        "h2": {
+          "fontSize": 24,
+          "lineHeight": 32,
+          "fontWeight": "600"
+        },
+        "h3": {
+          "fontSize": 20,
+          "lineHeight": 28,
+          "fontWeight": "600"
+        },
+        "h4": {
+          "fontSize": 18,
+          "lineHeight": 24,
+          "fontWeight": "500"
+        },
+        "body": {
+          "fontSize": 16,
+          "lineHeight": 24,
+          "fontWeight": "400"
+        },
+        "bodySmall": {
+          "fontSize": 14,
+          "lineHeight": 20,
+          "fontWeight": "400"
+        },
+        "caption": {
+          "fontSize": 12,
+          "lineHeight": 16,
+          "fontWeight": "400"
+        },
+        "button": {
+          "fontSize": 16,
+          "lineHeight": 24,
+          "fontWeight": "600"
+        }
+      }
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        48,
+        64
+      ]
+    },
+    "components": {
+      "buttons": {
+        "variants": [
+          "primary",
+          "secondary",
+          "outline",
+          "ghost",
+          "danger"
+        ],
+        "sizes": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "states": [
+          "default",
+          "hover",
+          "active",
+          "disabled",
+          "loading"
+        ]
+      },
+      "inputs": {
+        "variants": [
+          "default",
+          "filled",
+          "outlined"
+        ],
+        "sizes": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "states": [
+          "default",
+          "focus",
+          "error",
+          "disabled"
+        ]
+      },
+      "cards": {
+        "variants": [
+          "default",
+          "elevated",
+          "outlined",
+          "interactive"
+        ],
+        "sizes": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "states": [
+          "default",
+          "hover",
+          "selected"
+        ]
+      },
+      "lists": {
+        "variants": [
+          "default",
+          "compact",
+          "detailed"
+        ],
+        "sizes": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "states": [
+          "default",
+          "empty",
+          "loading"
+        ]
+      },
+      "modals": {
+        "variants": [
+          "default",
+          "fullscreen",
+          "bottom-sheet"
+        ],
+        "sizes": [
+          "sm",
+          "md",
+          "lg",
+          "full"
+        ],
+        "states": [
+          "open",
+          "closed"
+        ]
+      },
+      "navigation": {
+        "variants": [
+          "tabs",
+          "drawer",
+          "stack"
+        ],
+        "sizes": [
+          "default"
+        ],
+        "states": [
+          "active",
+          "inactive"
+        ]
+      },
+      "feedback": {
+        "variants": [
+          "toast",
+          "alert",
+          "snackbar",
+          "badge"
+        ],
+        "sizes": [
+          "sm",
+          "md"
+        ],
+        "states": [
+          "success",
+          "warning",
+          "error",
+          "info"
+        ]
+      }
+    },
+    "screens": [
+      {
+        "name": "Home",
+        "route": "/(tabs)/index",
+        "layout": "scroll",
+        "components": [
+          {
+            "type": "Header",
+            "variant": "default",
+            "props": {
+              "title": "GigGuard"
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "width": "100%",
+              "height": "60"
+            }
+          },
+          {
+            "type": "Card",
+            "variant": "elevated",
+            "props": {
+              "title": "Welcome"
+            },
+            "position": {
+              "x": 16,
+              "y": 80,
+              "width": "calc(100% - 32px)",
+              "height": "auto"
+            }
+          }
+        ],
+        "interactions": [
+          {
+            "trigger": "onPress",
+            "action": "navigate",
+            "target": "/details"
+          }
+        ],
+        "dataBindings": [
+          {
+            "component": "Card",
+            "property": "data",
+            "source": "homeData"
+          }
+        ]
+      },
+      {
+        "name": "Profile",
+        "route": "/(tabs)/profile",
+        "layout": "scroll",
+        "components": [
+          {
+            "type": "Avatar",
+            "variant": "large",
+            "props": {},
+            "position": {
+              "x": 0,
+              "y": 0,
+              "width": "100",
+              "height": "100"
+            }
+          },
+          {
+            "type": "Form",
+            "variant": "default",
+            "props": {
+              "fields": [
+                "name",
+                "email",
+                "bio"
+              ]
+            },
+            "position": {
+              "x": 16,
+              "y": 120,
+              "width": "calc(100% - 32px)",
+              "height": "auto"
+            }
+          }
+        ],
+        "interactions": [
+          {
+            "trigger": "onSubmit",
+            "action": "updateProfile",
+            "target": "profileStore"
+          }
+        ],
+        "dataBindings": [
+          {
+            "component": "Avatar",
+            "property": "src",
+            "source": "user.avatar"
+          },
+          {
+            "component": "Form",
+            "property": "values",
+            "source": "user"
+          }
+        ]
+      },
+      {
+        "name": "Settings",
+        "route": "/(tabs)/settings",
+        "layout": "scroll",
+        "components": [
+          {
+            "type": "List",
+            "variant": "default",
+            "props": {
+              "items": [
+                "Notifications",
+                "Privacy",
+                "Theme",
+                "Help"
+              ]
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "width": "100%",
+              "height": "auto"
+            }
+          }
+        ],
+        "interactions": [
+          {
+            "trigger": "onPress",
+            "action": "navigate",
+            "target": "/settings/:item"
+          }
+        ],
+        "dataBindings": [
+          {
+            "component": "List",
+            "property": "items",
+            "source": "settingsItems"
+          }
+        ]
+      }
+    ],
+    "animations": {
+      "transitions": {
+        "duration": {
+          "fast": 150,
+          "normal": 300,
+          "slow": 500
+        },
+        "easing": {
+          "standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "accelerate": "cubic-bezier(0.4, 0, 1, 1)",
+          "decelerate": "cubic-bezier(0, 0, 0.2, 1)"
+        }
+      },
+      "microInteractions": [
+        {
+          "name": "buttonPress",
+          "trigger": "onPressIn",
+          "animation": "scale(0.98)",
+          "duration": 100
+        },
+        {
+          "name": "cardHover",
+          "trigger": "onHoverIn",
+          "animation": "translateY(-2px)",
+          "duration": 200
+        },
+        {
+          "name": "fadeIn",
+          "trigger": "onMount",
+          "animation": "opacity 0->1",
+          "duration": 300
+        }
+      ]
+    },
+    "accessibility": {
+      "wcagLevel": "AA",
+      "colorContrast": {
+        "normal": 4.5,
+        "large": 3
+      },
+      "touchTargetSize": 44,
+      "screenReaderSupport": true,
+      "reduceMotionSupport": true
+    }
+  },
+  "qualityReport": {
+    "typescript": {
+      "passed": false,
+      "errors": [
+        {
+          "file": "C:\\Projects\\NewAgent\\output\\app_1764814446868\\src\\components\\List.tsx",
+          "line": 6,
+          "column": 17,
+          "message": "Avoid using \"any\" type",
+          "severity": "warning"
+        }
+      ],
+      "warnings": []
+    },
+    "unitTests": {
+      "total": 204,
+      "passed": 204,
+      "failed": 0,
+      "skipped": 0,
+      "coverage": 100,
+      "duration": 0,
+      "failures": []
+    },
+    "integrationTests": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "coverage": 0,
+      "duration": 0,
+      "failures": []
+    },
+    "e2eTests": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "coverage": 0,
+      "duration": 0,
+      "failures": []
+    },
+    "performance": {
+      "bundleSize": 55584,
+      "startupTime": 555,
+      "memoryUsage": 138960,
+      "renderTime": {}
+    },
+    "accessibility": {
+      "score": 100,
+      "violations": [],
+      "warnings": []
+    },
+    "codeQuality": {
+      "lintErrors": 0,
+      "lintWarnings": 9,
+      "complexity": 4,
+      "duplication": 0,
+      "maintainability": 84
+    }
+  },
+  "securityAudit": {
+    "overallRisk": "high",
+    "score": 49,
+    "vulnerabilities": [
+      {
+        "id": "VULN-1",
+        "category": "extraneous-functionality",
+        "severity": "low",
+        "title": "TODO/FIXME comment (incomplete implementation)",
+        "description": "Found: \"// TODO\"",
+        "file": "src\\utils\\helpers.ts",
+        "line": 1,
+        "cwe": "CWE-489",
+        "fix": "Remove debug code and console.log statements for production",
+        "verified": false
+      },
+      {
+        "severity": "high",
+        "title": "User Data Stored in SecureStore Without Encryption Key Protection",
+        "description": "The user data (including email and name) is stored in SecureStore (profileStore.ts and appStore.ts) without additional encryption. While SecureStore provides device-level protection, sensitive user data should ideally have application-level encryption for defense in depth, especially on Android where SecureStore uses SharedPreferences with hardware-backed keystore that may not be available on all devices.",
+        "file": "src/stores/profileStore.ts",
+        "line": 21,
+        "cwe": "CWE-311",
+        "fix": "Implement application-level encryption for sensitive user data before storing in SecureStore. Consider using expo-crypto to encrypt the JSON payload before passing it to SecureStore.setItemAsync(). Ensure encryption keys are properly managed and not hardcoded.",
+        "id": "AI-1",
+        "category": "code-quality",
+        "verified": false
+      },
+      {
+        "severity": "medium",
+        "title": "Missing Certificate Pinning for API Requests",
+        "description": "The ApiService class in api.service.ts creates an Axios instance without certificate pinning. This makes the app vulnerable to man-in-the-middle attacks where an attacker with a trusted CA certificate could intercept API communications, even over HTTPS.",
+        "file": "src/services/api.service.ts",
+        "line": 57,
+        "cwe": "CWE-295",
+        "fix": "Implement certificate pinning for the API client. For React Native, use react-native-ssl-pinning or expo-network-pinning to validate the server's SSL certificate against a known certificate or public key hash.",
+        "id": "AI-2",
+        "category": "code-quality",
+        "verified": false
+      },
+      {
+        "severity": "medium",
+        "title": "Sensitive Data Persisted to AsyncStorage",
+        "description": "The appStore.ts uses Zustand persist middleware with AsyncStorage to store transactions, budgets, and bill reminders. AsyncStorage is not encrypted on Android and iOS, making financial data accessible to anyone with physical device access or through device backups. Transactions may contain sensitive financial information.",
+        "file": "src/stores/appStore.ts",
+        "line": 196,
+        "cwe": "CWE-312",
+        "fix": "Change the storage backend from AsyncStorage to a secure encrypted storage solution. Use expo-secure-store for the Zustand persist middleware or implement a custom encrypted storage adapter that wraps SecureStore. Alternatively, use react-native-encrypted-storage for cross-platform encrypted persistence.",
+        "id": "AI-3",
+        "category": "insecure-storage",
+        "verified": false
+      },
+      {
+        "severity": "medium",
+        "title": "Missing Request/Response Size Limits",
+        "description": "The ApiService does not implement request or response size limits beyond the 30-second timeout. Large payloads could lead to memory exhaustion or be used in denial-of-service attacks against the client application.",
+        "file": "src/services/api.service.ts",
+        "line": 59,
+        "cwe": "CWE-770",
+        "fix": "Add maxContentLength and maxBodyLength configuration to the Axios instance: { maxContentLength: 10 * 1024 * 1024, maxBodyLength: 10 * 1024 * 1024 } to limit responses and requests to 10MB or an appropriate size for your API.",
+        "id": "AI-4",
+        "category": "code-quality",
+        "verified": false
+      },
+      {
+        "severity": "low",
+        "title": "Insufficient Input Validation on Numeric Fields",
+        "description": "Methods like createTransaction, createBudgetCategory, and createBillReminder sanitize string fields but do not validate numeric inputs (amount, limit, days parameters). Negative values, NaN, Infinity, or excessively large numbers could cause business logic errors or backend issues.",
+        "file": "src/services/api.service.ts",
+        "line": 184,
+        "cwe": "CWE-20",
+        "fix": "Add validation for numeric inputs before sending to the API. Ensure amounts are positive finite numbers: if (!Number.isFinite(data.amount) || data.amount < 0) throw new Error('Invalid amount'). Apply similar validation to limit, days, and other numeric fields.",
+        "id": "AI-5",
+        "category": "code-quality",
+        "verified": false
+      },
+      {
+        "severity": "low",
+        "title": "Missing Rate Limiting Protection",
+        "description": "The ApiService does not implement client-side rate limiting or request throttling. Rapid successive API calls (e.g., from UI button spam) could overwhelm the client, waste resources, or trigger server-side rate limits that affect legitimate users.",
+        "file": "src/services/api.service.ts",
+        "line": 50,
+        "cwe": "CWE-799",
+        "fix": "Implement request throttling/debouncing at the service layer using libraries like axios-retry with exponential backoff or bottleneck for rate limiting. Consider adding request deduplication for identical concurrent requests.",
+        "id": "AI-6",
+        "category": "code-quality",
+        "verified": false
+      },
+      {
+        "severity": "low",
+        "title": "Sensitive Error Information in Logs",
+        "description": "Console.warn statements throughout the codebase log errors that may contain sensitive information (token retrieval failures, auth token deletion errors, user data parsing errors). These logs could be accessed through device logs or debugging tools.",
+        "file": "src/stores/appStore.ts",
+        "line": 109,
+        "cwe": "CWE-532",
+        "fix": "Sanitize error messages before logging to remove sensitive data. In production, use a logging service that supports log level filtering and disable debug logs. Consider implementing a custom error logger that redacts sensitive fields before output.",
+        "id": "AI-7",
+        "category": "code-quality",
+        "verified": false
+      }
+    ],
+    "compliance": [
+      {
+        "standard": "OWASP-M2",
+        "requirement": "Secure data storage with encryption",
+        "status": "pass",
+        "notes": "SecureStore detected for sensitive data"
+      },
+      {
+        "standard": "OWASP-M3",
+        "requirement": "HTTPS-only communication",
+        "status": "pass",
+        "notes": "All network calls use HTTPS"
+      },
+      {
+        "standard": "OWASP-M4",
+        "requirement": "Secure authentication implementation",
+        "status": "pass",
+        "notes": "Authentication handling detected"
+      },
+      {
+        "standard": "OWASP-M7",
+        "requirement": "Input validation and sanitization",
+        "status": "pass",
+        "notes": "Input validation libraries detected"
+      },
+      {
+        "standard": "OWASP-M7",
+        "requirement": "Proper error handling",
+        "status": "pass",
+        "notes": "Error handling implemented"
+      }
+    ],
+    "recommendations": [
+      {
+        "priority": "low",
+        "category": "extraneous-functionality",
+        "recommendation": "Remove debug code before release",
+        "implementation": "Remove console.log, debugger statements, and test code from production builds"
+      },
+      {
+        "priority": "high",
+        "category": "code-quality",
+        "recommendation": "Remove dangerous code patterns",
+        "implementation": "Eliminate eval(), innerHTML, and dynamic code execution"
+      },
+      {
+        "priority": "high",
+        "category": "insecure-storage",
+        "recommendation": "Encrypt sensitive data at rest",
+        "implementation": "Use SecureStore with encryption for sensitive data persistence"
+      },
+      {
+        "priority": "medium",
+        "category": "general",
+        "recommendation": "Implement security headers for all API requests",
+        "implementation": "Add security headers in axios interceptors (X-Content-Type-Options, X-Frame-Options, etc.)"
+      }
+    ]
+  },
+  "iteration": 3
+}
