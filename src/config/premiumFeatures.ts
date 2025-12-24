@@ -21,7 +21,7 @@ export const FREE_TIER_LIMITS = {
   taxReportExport: false,         // Exportable tax reports are premium
 
   // Invoicing
-  maxInvoicesPerMonth: 2,         // Free users can send 2 invoices per month
+  maxInvoicesPerMonth: 5,         // Free users can send 5 invoices per month
   customBranding: false,          // Custom invoice branding is premium
   recurringInvoices: false,       // Recurring invoices are premium
   paymentReminders: false,        // Automatic payment reminders are premium
